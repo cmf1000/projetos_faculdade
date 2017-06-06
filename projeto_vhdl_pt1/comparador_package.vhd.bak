@@ -1,0 +1,9 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+PACKAGE comparador_package IS
+COMPONENT comparador
+PORT ( x: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	   y: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 resultado: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)) ;
+END COMPONENT ;
+END inversor_package ;

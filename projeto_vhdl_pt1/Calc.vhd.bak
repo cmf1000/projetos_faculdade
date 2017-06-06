@@ -1,0 +1,10 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY menu IS 
+PORT ( arm, rec, op1, op2, x0, x1, x2, x3, y0, y1, y2, y3 : IN STD_LOGIC;
+		 x, y, s, op_d, arm_d : OUT STD_LOGIC_VECTOR(1 TO 7) ) ;
+END menu ;
+ARCHITECTURE escolha OF menu IS
+
+
+END escolha ;

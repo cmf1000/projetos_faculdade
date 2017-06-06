@@ -1,0 +1,19 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY display_op IS
+PORT ( op: IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+		 leds: OUT STD_LOGIC_VECTOR(1 TO 7) ) ;
+END display_op;
+
+ARCHITECTURE strutura OF display_op IS
+BEGIN
+	PROCESS (op)
+	BEGIN
+		CASE op IS
+			WHEN "00" => leds <= "0000001" ;
+			WHEN "01" => leds <= "1001111" ;
+			WHEN "10" => leds <= "0010010" ;
+			WHEN "11" => leds <= "0000110" ;
+		END CASE;
+	END PROCESS;
+END strutura;

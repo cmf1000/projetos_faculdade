@@ -1,0 +1,12 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY comparador IS
+PORT ( x: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+       y: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 resultado: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)) ;
+END comparador;
+
+ARCHITECTURE strutura OF comparador IS
+BEGIN
+resultado<=((x(0) and y(0)) and(x(1) and y(1))and (x(2) and y(2))and(x(3) and y(3)))
+END strutura;

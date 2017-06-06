@@ -1,0 +1,647 @@
+|Calc
+arm => latchd:stagesalva0.clk
+arm => latchd:stagesalva1.clk
+arm => latchd:stagesalva2.clk
+arm => latchd:stagesalva3.clk
+arm => latchd:stagesalva4.clk
+rec => recupera[3].OUTPUTSELECT
+rec => recupera[2].OUTPUTSELECT
+rec => recupera[1].OUTPUTSELECT
+rec => recupera[0].OUTPUTSELECT
+op[0] => Mux0.IN1
+op[0] => Mux1.IN1
+op[0] => Mux2.IN1
+op[0] => Mux3.IN1
+op[0] => sum_sub:stage0.op
+op[0] => display_op:stageop.op[0]
+op[1] => Mux0.IN0
+op[1] => Mux1.IN0
+op[1] => Mux2.IN0
+op[1] => Mux3.IN0
+op[1] => err.OUTPUTSELECT
+op[1] => display_op:stageop.op[1]
+x[0] => sum_sub:stage0.x[0]
+x[0] => display_BCD:stage1.bcd[0]
+x[0] => modulo:stage3.x[0]
+x[0] => comparador:stage4.x[0]
+x[1] => sum_sub:stage0.x[1]
+x[1] => display_BCD:stage1.bcd[1]
+x[1] => modulo:stage3.x[1]
+x[1] => comparador:stage4.x[1]
+x[2] => sum_sub:stage0.x[2]
+x[2] => display_BCD:stage1.bcd[2]
+x[2] => modulo:stage3.x[2]
+x[2] => comparador:stage4.x[2]
+x[3] => sum_sub:stage0.x[3]
+x[3] => display_BCD:stage1.bcd[3]
+x[3] => modulo:stage3.x[3]
+x[3] => comparador:stage4.x[3]
+x[3] => display_sinal:stagesin_x.sinal
+y[0] => sum_sub:stage0.y[0]
+y[0] => display_BCD:stage2.bcd[0]
+y[0] => comparador:stage4.y[0]
+y[1] => sum_sub:stage0.y[1]
+y[1] => display_BCD:stage2.bcd[1]
+y[1] => comparador:stage4.y[1]
+y[2] => sum_sub:stage0.y[2]
+y[2] => display_BCD:stage2.bcd[2]
+y[2] => comparador:stage4.y[2]
+y[3] => sum_sub:stage0.y[3]
+y[3] => display_BCD:stage2.bcd[3]
+y[3] => comparador:stage4.y[3]
+y[3] => display_sinal:stagesin_y.sinal
+x_d[7] <= display_BCD:stage1.leds[7]
+x_d[6] <= display_BCD:stage1.leds[6]
+x_d[5] <= display_BCD:stage1.leds[5]
+x_d[4] <= display_BCD:stage1.leds[4]
+x_d[3] <= display_BCD:stage1.leds[3]
+x_d[2] <= display_BCD:stage1.leds[2]
+x_d[1] <= display_BCD:stage1.leds[1]
+y_d[7] <= display_BCD:stage2.leds[7]
+y_d[6] <= display_BCD:stage2.leds[6]
+y_d[5] <= display_BCD:stage2.leds[5]
+y_d[4] <= display_BCD:stage2.leds[4]
+y_d[3] <= display_BCD:stage2.leds[3]
+y_d[2] <= display_BCD:stage2.leds[2]
+y_d[1] <= display_BCD:stage2.leds[1]
+s_d[7] <= display_BCD:stagef.leds[7]
+s_d[6] <= display_BCD:stagef.leds[6]
+s_d[5] <= display_BCD:stagef.leds[5]
+s_d[4] <= display_BCD:stagef.leds[4]
+s_d[3] <= display_BCD:stagef.leds[3]
+s_d[2] <= display_BCD:stagef.leds[2]
+s_d[1] <= display_BCD:stagef.leds[1]
+op_d[7] <= display_op:stageop.leds[7]
+op_d[6] <= display_op:stageop.leds[6]
+op_d[5] <= display_op:stageop.leds[5]
+op_d[4] <= display_op:stageop.leds[4]
+op_d[3] <= display_op:stageop.leds[3]
+op_d[2] <= display_op:stageop.leds[2]
+op_d[1] <= display_op:stageop.leds[1]
+arm_d[7] <= display_BCD:stage_rec.leds[7]
+arm_d[6] <= display_BCD:stage_rec.leds[6]
+arm_d[5] <= display_BCD:stage_rec.leds[5]
+arm_d[4] <= display_BCD:stage_rec.leds[4]
+arm_d[3] <= display_BCD:stage_rec.leds[3]
+arm_d[2] <= display_BCD:stage_rec.leds[2]
+arm_d[1] <= display_BCD:stage_rec.leds[1]
+sinal_x[7] <= display_sinal:stagesin_x.leds[7]
+sinal_x[6] <= display_sinal:stagesin_x.leds[6]
+sinal_x[5] <= display_sinal:stagesin_x.leds[5]
+sinal_x[4] <= display_sinal:stagesin_x.leds[4]
+sinal_x[3] <= display_sinal:stagesin_x.leds[3]
+sinal_x[2] <= display_sinal:stagesin_x.leds[2]
+sinal_x[1] <= display_sinal:stagesin_x.leds[1]
+sinal_y[7] <= display_sinal:stagesin_y.leds[7]
+sinal_y[6] <= display_sinal:stagesin_y.leds[6]
+sinal_y[5] <= display_sinal:stagesin_y.leds[5]
+sinal_y[4] <= display_sinal:stagesin_y.leds[4]
+sinal_y[3] <= display_sinal:stagesin_y.leds[3]
+sinal_y[2] <= display_sinal:stagesin_y.leds[2]
+sinal_y[1] <= display_sinal:stagesin_y.leds[1]
+sinal_s[7] <= display_sinal:stages_s.leds[7]
+sinal_s[6] <= display_sinal:stages_s.leds[6]
+sinal_s[5] <= display_sinal:stages_s.leds[5]
+sinal_s[4] <= display_sinal:stages_s.leds[4]
+sinal_s[3] <= display_sinal:stages_s.leds[3]
+sinal_s[2] <= display_sinal:stages_s.leds[2]
+sinal_s[1] <= display_sinal:stages_s.leds[1]
+
+
+|Calc|sum_sub:stage0
+x[0] => fulladder:stage0.x
+x[1] => fulladder:stage1.x
+x[2] => fulladder:stage2.x
+x[3] => fulladder:stage3.x
+y[0] => comb.IN0
+y[1] => comb.IN0
+y[2] => comb.IN0
+y[3] => comb.IN0
+op => comb.IN1
+op => comb.IN1
+op => comb.IN1
+op => comb.IN1
+op => fulladder:stage0.Cin
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s[0] <= fulladder:stage0.s
+s[1] <= fulladder:stage1.s
+s[2] <= fulladder:stage2.s
+s[3] <= fulladder:stage3.s
+
+
+|Calc|sum_sub:stage0|fulladder:stage0
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|sum_sub:stage0|fulladder:stage1
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|sum_sub:stage0|fulladder:stage2
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|sum_sub:stage0|fulladder:stage3
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_BCD:stage1
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN10
+bcd[0] => Mux4.IN10
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN9
+bcd[1] => Mux4.IN9
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN8
+bcd[2] => Mux4.IN8
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+leds[7] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_BCD:stage2
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN10
+bcd[0] => Mux4.IN10
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN9
+bcd[1] => Mux4.IN9
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN8
+bcd[2] => Mux4.IN8
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+leds[7] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3
+x[0] => s.DATAB
+x[0] => sum_sub:stage0.x[0]
+x[0] => sum_sub:stage0.y[0]
+x[0] => sum_sub:stage1.y[0]
+x[1] => s.DATAB
+x[1] => sum_sub:stage0.x[1]
+x[1] => sum_sub:stage0.y[1]
+x[1] => sum_sub:stage1.y[1]
+x[2] => s.DATAB
+x[2] => sum_sub:stage0.x[2]
+x[2] => sum_sub:stage0.y[2]
+x[2] => sum_sub:stage1.y[2]
+x[3] => sum_sub:stage0.x[3]
+x[3] => sum_sub:stage0.y[3]
+x[3] => sum_sub:stage1.y[3]
+x[3] => s.OUTPUTSELECT
+x[3] => s.OUTPUTSELECT
+x[3] => s.OUTPUTSELECT
+x[3] => s.OUTPUTSELECT
+s[0] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= s.DB_MAX_OUTPUT_PORT_TYPE
+err <= sum_sub:stage1.cout
+
+
+|Calc|modulo:stage3|sum_sub:stage0
+x[0] => fulladder:stage0.x
+x[1] => fulladder:stage1.x
+x[2] => fulladder:stage2.x
+x[3] => fulladder:stage3.x
+y[0] => comb.IN0
+y[1] => comb.IN0
+y[2] => comb.IN0
+y[3] => comb.IN0
+op => comb.IN1
+op => comb.IN1
+op => comb.IN1
+op => comb.IN1
+op => fulladder:stage0.Cin
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s[0] <= fulladder:stage0.s
+s[1] <= fulladder:stage1.s
+s[2] <= fulladder:stage2.s
+s[3] <= fulladder:stage3.s
+
+
+|Calc|modulo:stage3|sum_sub:stage0|fulladder:stage0
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage0|fulladder:stage1
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage0|fulladder:stage2
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage0|fulladder:stage3
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage1
+x[0] => fulladder:stage0.x
+x[1] => fulladder:stage1.x
+x[2] => fulladder:stage2.x
+x[3] => fulladder:stage3.x
+y[0] => comb.IN0
+y[1] => comb.IN0
+y[2] => comb.IN0
+y[3] => comb.IN0
+op => comb.IN1
+op => comb.IN1
+op => comb.IN1
+op => comb.IN1
+op => fulladder:stage0.Cin
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+s[0] <= fulladder:stage0.s
+s[1] <= fulladder:stage1.s
+s[2] <= fulladder:stage2.s
+s[3] <= fulladder:stage3.s
+
+
+|Calc|modulo:stage3|sum_sub:stage1|fulladder:stage0
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage1|fulladder:stage1
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage1|fulladder:stage2
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|modulo:stage3|sum_sub:stage1|fulladder:stage3
+cin => s.IN1
+cin => cout.IN0
+cin => cout.IN0
+x => s.IN0
+x => cout.IN0
+x => cout.IN1
+y => s.IN1
+y => cout.IN1
+y => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|comparador:stage4
+x[0] => resultado.IN0
+x[1] => resultado.IN0
+x[2] => resultado.IN0
+x[3] => resultado.IN0
+y[0] => resultado.IN1
+y[1] => resultado.IN1
+y[2] => resultado.IN1
+y[3] => resultado.IN1
+resultado[0] <= resultado.DB_MAX_OUTPUT_PORT_TYPE
+resultado[1] <= <GND>
+resultado[2] <= <GND>
+resultado[3] <= <GND>
+
+
+|Calc|display_sinal:stagesin_x
+sinal => leds[6].DATAIN
+sinal => leds[1].DATAIN
+sinal => leds[4].DATAIN
+sinal => leds[5].DATAIN
+leds[7] <= <VCC>
+leds[6] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= <GND>
+leds[2] <= <GND>
+leds[1] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_sinal:stagesin_y
+sinal => leds[6].DATAIN
+sinal => leds[1].DATAIN
+sinal => leds[4].DATAIN
+sinal => leds[5].DATAIN
+leds[7] <= <VCC>
+leds[6] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= <GND>
+leds[2] <= <GND>
+leds[1] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|latchd:stagesalva0
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|latchd:stagesalva1
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|latchd:stagesalva2
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|latchd:stagesalva3
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|latchd:stagesalva4
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_op:stageop
+op[0] => Mux0.IN5
+op[0] => Mux1.IN5
+op[0] => Mux2.IN5
+op[0] => Mux3.IN5
+op[0] => leds[5].DATAIN
+op[1] => Mux0.IN4
+op[1] => Mux1.IN4
+op[1] => Mux2.IN4
+op[1] => Mux3.IN4
+op[1] => leds[7].DATAIN
+leds[7] <= op[1].DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= op[0].DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= <GND>
+leds[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_sinal:stages_s
+sinal => leds[6].DATAIN
+sinal => leds[1].DATAIN
+sinal => leds[4].DATAIN
+sinal => leds[5].DATAIN
+leds[7] <= <VCC>
+leds[6] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= <GND>
+leds[2] <= <GND>
+leds[1] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_BCD:stagef
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN10
+bcd[0] => Mux4.IN10
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN9
+bcd[1] => Mux4.IN9
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN8
+bcd[2] => Mux4.IN8
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+leds[7] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Calc|display_BCD:stage_rec
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN10
+bcd[0] => Mux4.IN10
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN9
+bcd[1] => Mux4.IN9
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN8
+bcd[2] => Mux4.IN8
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+leds[7] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+
+

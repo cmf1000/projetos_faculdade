@@ -1,0 +1,25 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY controle IS
+PORT (	x: IN STD_LOGIC_VECTOR(5 DOWNTO 0)
+		s, enable1 : IN STD_LOGIC;
+		 q: OUT STD_LOGIC);
+END controle;
+
+ARCHITECTURE strutura OF controle IS
+signal validacao,enable2, enable3 STD_LOGIC;
+signal senhaslva std_logic_vector(5 DOWNTO 0);
+COMPONENT trava
+	PORT ( enable, e1 : IN STD_LOGIC ;
+			q : OUT STD_LOGIC ) ;
+
+COMPONENT senha
+		PORT ( x: IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+		 enable, salvar,validacao: IN STD_LOGIC;
+		 s: OUT STD_LOGIC_VECTOR(5 DOWNTO 0));
+BEGIN
+	stage0: senha port map(x, enable3, s,validacao,senhaslva);
+	validacao <= (x(0)xor senhaslva(0))xor (x(1)xor senhaslva(1))xor (x(2)xor senhaslva(2))xor (x(3)xor senhaslva(3))xor (x(4)xor senhaslva(4))xor (x(5)xor senhaslva(5));
+	stage1: trava port map (enable1,validacao,enable2);
+	enable3<= enable1 and enable2;
+END strutura;

@@ -1,0 +1,19 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY trava IS
+PORT ( enable, e1: IN STD_LOGIC;
+		 s: OUT STD_LOGIC);
+END trava;
+
+ARCHITECTURE strutura OF trava IS
+signal e2, e3 ,ef STD_LOGIC;
+COMPONENT fliflop
+PORT ( d,clock : IN STD_LOGIC ;
+		q : OUT STD_LOGIC ) ;
+
+BEGIN
+	stage0: flipflop PORT MAP (e1, enable, e2);
+	stage1: flipflop PORT MAP (e2, enable, e3);
+	ef <= (not e1)and(not e2)and(not e3);
+	s  <= not ef;
+END strutura;

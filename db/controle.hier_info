@@ -1,0 +1,159 @@
+|controle
+x[0] => validacao.IN1
+x[0] => senha:stage0.x[0]
+x[0] => display_BCD:stage2.bcd[0]
+x[1] => validacao.IN1
+x[1] => senha:stage0.x[1]
+x[1] => display_BCD:stage2.bcd[1]
+x[2] => validacao.IN1
+x[2] => senha:stage0.x[2]
+x[2] => display_BCD:stage2.bcd[2]
+x[3] => validacao.IN1
+x[3] => senha:stage0.x[3]
+x[3] => display_BCD:stage2.bcd[3]
+x[4] => validacao.IN1
+x[4] => senha:stage0.x[4]
+x[4] => display_BCD:stage2.bcd[4]
+x[5] => validacao.IN1
+x[5] => senha:stage0.x[5]
+x[5] => display_BCD:stage2.bcd[5]
+s => senha:stage0.salvar
+enable1 => q.IN1
+enable1 => senha:stage0.enable
+enable1 => comb.IN1
+enable1 => trava:stage1.enable
+q <= q.DB_MAX_OUTPUT_PORT_TYPE
+n <= trava:stage1.Q
+bcd[13] <= display_BCD:stage2.leds[13]
+bcd[12] <= display_BCD:stage2.leds[12]
+bcd[11] <= display_BCD:stage2.leds[11]
+bcd[10] <= display_BCD:stage2.leds[10]
+bcd[9] <= display_BCD:stage2.leds[9]
+bcd[8] <= display_BCD:stage2.leds[8]
+bcd[7] <= display_BCD:stage2.leds[7]
+bcd[6] <= display_BCD:stage2.leds[6]
+bcd[5] <= display_BCD:stage2.leds[5]
+bcd[4] <= display_BCD:stage2.leds[4]
+bcd[3] <= display_BCD:stage2.leds[3]
+bcd[2] <= display_BCD:stage2.leds[2]
+bcd[1] <= display_BCD:stage2.leds[1]
+bcd[0] <= display_BCD:stage2.leds[0]
+
+
+|controle|senha:stage0
+x[0] => latchd:stage0.d
+x[1] => latchd:stage1.d
+x[2] => latchd:stage2.d
+x[3] => latchd:stage3.d
+x[4] => latchd:stage4.d
+x[5] => latchd:stage5.d
+enable => chave.IN0
+salvar => chave.IN1
+validacao => chave.IN1
+s[0] <= latchd:stage0.q
+s[1] <= latchd:stage1.q
+s[2] <= latchd:stage2.q
+s[3] <= latchd:stage3.q
+s[4] <= latchd:stage4.q
+s[5] <= latchd:stage5.q
+
+
+|controle|senha:stage0|latchd:stage0
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|senha:stage0|latchd:stage1
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|senha:stage0|latchd:stage2
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|senha:stage0|latchd:stage3
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|senha:stage0|latchd:stage4
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|senha:stage0|latchd:stage5
+d => q$latch.DATAIN
+clk => q$latch.LATCH_ENABLE
+q <= q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|trava:stage1
+enable => flipflop:stage0.clock
+enable => flipflop:stage1.clock
+enable => flipflop:stage2.clock
+e1 => flipflop:stage0.d
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|trava:stage1|flipflop:stage0
+D => Q~reg0.DATAIN
+Clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|trava:stage1|flipflop:stage1
+D => Q~reg0.DATAIN
+Clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|trava:stage1|flipflop:stage2
+D => Q~reg0.DATAIN
+Clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|controle|display_BCD:stage2
+bcd[0] => Ram0.RADDR
+bcd[1] => Ram0.RADDR1
+bcd[2] => Ram0.RADDR2
+bcd[3] => Ram0.RADDR3
+bcd[4] => Ram0.RADDR4
+bcd[5] => Ram0.RADDR5
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+err => leds.OUTPUTSELECT
+leds[13] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[12] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[11] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[10] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[9] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[8] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[7] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+
+
